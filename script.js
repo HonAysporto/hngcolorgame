@@ -55,13 +55,21 @@ function handleGuess(event) {
   const guessedColor = event.target.dataset.color;
   if (guessedColor === targetColor) {
     gameStatus.textContent = "Correct!";
+   
+    
     score++;
     scoreElement.textContent = score;
     event.target.classList.add('correct');
-    initGame();
+    setTimeout(() => {
+      initGame();
+    }, 1000);
+    
+   
+    setBackgroundEffect('green')
   } else {
     gameStatus.textContent = "Wrong! Try again.";
     event.target.classList.add('wrong');
+    setBackgroundEffect('red')
   }
 
   
@@ -73,6 +81,14 @@ newGameButton.addEventListener('click', () => {
   scoreElement.textContent = score;
   initGame();
 });
+
+function setBackgroundEffect(color) {
+  document.body.style.animation = "backgroundBlink 1s";
+  document.body.style.backgroundColor = color;
+  setTimeout(() => {
+    document.body.style.backgroundColor = "";
+  }, 1000);
+}
 
 // Initialize the game on page load
 initGame();

@@ -1,11 +1,13 @@
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  /* background: linear-gradient(135deg, #ff9a9e, #fad0c4); */
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .game-container {
@@ -15,6 +17,8 @@ body {
   border-radius: 15px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
+  max-width: 90%;
+  width: 400px;
 }
 
 h1 {
@@ -24,7 +28,8 @@ h1 {
 }
 
 .color-box {
-  width: 220px;
+  width: 100%;
+  max-width: 220px;
   height: 220px;
   margin: 20px auto;
   border-radius: 15px;
@@ -35,13 +40,13 @@ h1 {
 .color-options {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin: 20px 0;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .color-options button {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -96,3 +101,17 @@ p {
 .wrong {
   animation: wrong 0.5s ease;
 }
+
+@media (max-width: 480px) {
+  .game-container {
+    padding: 20px;
+    width: 90%;
+  }
+
+  .color-options button {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+
